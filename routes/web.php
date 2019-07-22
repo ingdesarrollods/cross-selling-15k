@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/allianz-aliado-experto/contacto/{contacto}', function(){
+	return View::make('allianz_aliado_experto');
+});
+
+Route::post('suscrito', 'SuscripcionController@store');

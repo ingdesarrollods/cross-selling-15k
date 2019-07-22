@@ -13,13 +13,7 @@ class ContactoController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $contacto = Contacto::where('keyid', $request->contactos)->first();
-        if($contacto){
-            return dd($contacto);
-        } else {
-            abort(404);
-        }
+
     }
 
     /**
@@ -60,9 +54,10 @@ class ContactoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contacto $contacto)
     {
         //
+        return view('allianz_aliado_experto', compact('contacto'));
     }
 
     /**

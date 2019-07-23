@@ -30,11 +30,16 @@ function ajax15k(id, opcion){
 			opcion: opcion
 		},
 		success: function(data){
-			if(data){
-				alert(data);
-			} else {
-				console.log('No se pudo actualizar');
-			}
+			emailAgent(data);
 		}
 	});
+}
+
+function emailAgent(array){
+	$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    console.log(array);
 }

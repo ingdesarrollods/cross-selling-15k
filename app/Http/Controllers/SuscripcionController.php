@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Suscripcion;
 use App\Contacto;
+use App\AgenteContacto;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class SuscripcionController extends Controller
 {
@@ -55,7 +58,22 @@ class SuscripcionController extends Controller
         }
         $suscripcion = Suscripcion::create($suscrito);
         if($suscripcion->wasRecentlyCreated){
-            $response = true;
+            $result = DB::select("select min(id_agente) as id_agente from asignacion_agentes where numero = (select min(numero) from asignacion_agentes);");
+            $agente = 0;
+            foreach($result as $key => $row){
+                $agente = $row->id_agente;
+            }
+            $contacto_suscrito = array('id_agente' => $agente, 'id_contacto' => $request->id_contacto, 'id_suscripcion' => $suscripcion->id);
+            $agente_contacto = AgenteContacto::create($contacto_suscrito);
+            if($agente_contacto->wasRecentlyCreated){
+                $response = array();
+                $info = DB::select("select a.id, b.nombre_agencia as agencia, b.director, b.celular_director, b.correo_director, b.correo_agente, c.keyid, c.numero_documento as documento_cliente, concat(c.nombres,' ',c.apellidos) as nombre_cliente, c.celular as celular_cliente, c.correo as correo_cliente from agentes_contactos as a inner join agentes as b on a.id_agente = b.id inner join contactos as c on a.id_contacto = c.id inner join suscripcions as d on a.id_suscripcion = d.id where a.id = '9';");
+                foreach($info as $key => $row){
+                    $response[] = $row;
+                }
+            } else {
+                $response = false;
+            }
         } else {
             $response = false;
         }

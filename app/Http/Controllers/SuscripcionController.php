@@ -67,8 +67,21 @@ class SuscripcionController extends Controller
             $agente_contacto = AgenteContacto::create($contacto_suscrito);
             if($agente_contacto->wasRecentlyCreated){
                 $response = array();
-                $info = DB::select("select a.id, b.nombre_agencia as agencia, b.director, b.celular_director, b.correo_director, b.correo_agente, c.keyid, c.numero_documento as documento_cliente, concat(c.nombres,' ',c.apellidos) as nombre_cliente, c.celular as celular_cliente, c.correo as correo_cliente from agentes_contactos as a inner join agentes as b on a.id_agente = b.id inner join contactos as c on a.id_contacto = c.id inner join suscripcions as d on a.id_suscripcion = d.id where a.id = '9';");
+                $info = DB::select("select a.id, b.nombre_agencia as agencia, b.director, b.celular_director, b.correo_director, b.correo_agente, c.keyid, c.numero_documento as documento_cliente, concat(c.nombres,' ',c.apellidos) as nombre_cliente, c.celular as celular_cliente, c.correo as correo_cliente, d.salud, d.vida, d.hogar, d.auto from agentes_contactos as a inner join agentes as b on a.id_agente = b.id inner join contactos as c on a.id_contacto = c.id inner join suscripcions as d on a.id_suscripcion = d.id where a.id = '".$suscripcion->id."';");
                 foreach($info as $key => $row){
+                    if($row->salud){
+                        $producto = 'Seguro de Salud/Allianz Medicall';
+                    }
+                    if($row->vida){
+                        $producto = 'Seguro de vida';
+                    }
+                    if($row->hogar){
+                        $producto = 'Seguro de hogar';
+                    }
+                    if($row->auto){
+                        $producto = 'Seguro de vida';
+                    }
+                    $row->producto = $producto;
                     $response[] = $row;
                 }
             } else {

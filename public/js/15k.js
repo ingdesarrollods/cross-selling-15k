@@ -35,11 +35,20 @@ function ajax15k(id, opcion){
 	});
 }
 
-function emailAgent(array){
+function emailAgent(data){
 	$.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    console.log(array);
+    $.ajax({
+		type: 'post',
+		url: '/email',
+		data: {
+			data: data	
+		},
+		success: function(result){
+			window.location.href = '/gracias';
+		}
+	});
 }

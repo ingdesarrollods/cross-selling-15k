@@ -15,7 +15,7 @@
                     <td>
                     	<img
                             style="width:800px; display: block;"
-                            src="{{asset('15k.somosallianz.com/img/mailing.jpg')}}"
+                            src="{{asset('img/mailing.jpg')}}"
                             alt="mailing"
                             border="0">
                     </td>

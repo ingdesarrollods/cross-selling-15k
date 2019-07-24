@@ -1,3 +1,4 @@
+USE cross_selling_15k;
 INSERT INTO contactos (keyid, numero_documento, nombres, apellidos, celular, correo) VALUES (to_base64('1031122018'), '1031122018', 'JOHN DEIVID', 'TELLO ZUÑIGA', '3012928800', 'DEIVIS50@HOTMAIL.COM');
 INSERT INTO contactos (keyid, numero_documento, nombres, apellidos, celular, correo) VALUES (to_base64('1033745273'), '1033745273', 'MIGUEL', 'AMADOR', '3214632180', '');
 INSERT INTO contactos (keyid, numero_documento, nombres, apellidos, celular, correo) VALUES (to_base64('1013637291'), '1013637291', 'NICOLAS', 'HERRERA', '3214214844', '');

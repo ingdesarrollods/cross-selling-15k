@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Mail; 
 
 class EmailController extends Controller
@@ -27,12 +28,16 @@ class EmailController extends Controller
     }
 
     public function contacto(){
-        $ok = 'ok';
-        Mail::send('contacto', ['data' => '1'], function($msj) use($ok){
-            $msj->from('jcortes@dayscript.com', 'Johan Cortes');
-            $msj->subject('Mailing de pruebas');
-            $msj->to('joco1204@gmail.com', 'Johan Cortes');
-        });
-        return redirect()->back();
+        $contacto = DB::table('contactos')->get();
+        foreach($contacto as $key => $data){
+            $correo = $data->correo;
+            $nombre = $data->nombres." ".$data->apellidos;
+            Mail::send('contacto', ['data' => $data], function($msj) use($correo, $nombre){
+                $msj->from('jcortes@dayscript.com', 'Johan Cortes');
+                $msj->subject('Mailing de pruebas');
+                $msj->to($correo, $nombre);
+            });
+            return redirect()->back();
+        }
     }
 }

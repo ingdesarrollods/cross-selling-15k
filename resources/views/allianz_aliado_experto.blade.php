@@ -35,7 +35,7 @@
 						<h3>
 							<b>Elige los productos que quieres. Encontrarás diferentes  beneficios, coberturas y asistencias con las que</b>
 							<br>
-							<b>podras contar en cada momento de tu vida.</b>
+							<b>podrás contar en cada momento de tu vida.</b>
 						</h3>							
 					</span>
 				</div>

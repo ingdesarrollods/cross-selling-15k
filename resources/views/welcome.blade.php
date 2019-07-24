@@ -77,7 +77,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    15k
+                    ALLIANZ 15K
                 </div>
             </div>
         </div>

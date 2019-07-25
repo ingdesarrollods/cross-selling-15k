@@ -17,11 +17,11 @@ $(function(){
 });
 
 function ajax15k(id, opcion){
-	/*$.ajaxSetup({
+	$.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });*/
+    });
 	$.ajax({
 		type: 'post',
 		url: '/suscrito',
@@ -29,6 +29,7 @@ function ajax15k(id, opcion){
 			id_contacto: id,
 			opcion: opcion
 		},
+		datatype: 'json',
 		success: function(data){
 			emailAgent(data);
 		}
@@ -36,17 +37,18 @@ function ajax15k(id, opcion){
 }
 
 function emailAgent(data){
-	/*$.ajaxSetup({
+	$.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });*/
+    });
     $.ajax({
 		type: 'post',
 		url: '/email',
 		data: {
-			data: data
+			data: data	
 		},
+		datatype: 'json',
 		success: function(result){
 			window.location.href = '/gracias';
 		}

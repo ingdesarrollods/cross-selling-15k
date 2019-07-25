@@ -30,7 +30,7 @@ function ajax15k(id, opcion){
 			opcion: opcion
 		},
 		success: function(data){
-			emailAgent(data);
+			//emailAgent(data);
 		}
 	});
 }
@@ -41,7 +41,6 @@ function emailAgent(data){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    console.log(data);
     $.ajax({
 		type: 'post',
 		url: '/email',
@@ -49,7 +48,7 @@ function emailAgent(data){
 			data: data	
 		},
 		success: function(result){
-			//window.location.href = '/gracias';
+			window.location.href = '/gracias';
 		}
 	});
 }

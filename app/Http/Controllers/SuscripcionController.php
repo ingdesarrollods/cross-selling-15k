@@ -91,7 +91,8 @@ class SuscripcionController extends Controller
             $response = false;
         }
         $result = $response;
-        return response()->json($result);
+        dd($result);
+        //return response()->json($result);
     }
 
     /**

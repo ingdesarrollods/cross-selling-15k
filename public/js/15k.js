@@ -48,7 +48,7 @@ function emailAgent(data){
 			data: data	
 		},
 		success: function(result){
-			window.location.href = '/gracias';
+			//window.location.href = '/gracias';
 		}
 	});
 }

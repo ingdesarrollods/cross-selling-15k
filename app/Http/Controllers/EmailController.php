@@ -11,13 +11,13 @@ class EmailController extends Controller
     //
     public function send(Request $request){
         foreach ($request as $key => $data) {
-            $from   = $data->data->correo_cliente;
-            $name1  = $data->data->nombre_cliente;
+            $from   = $data->correo_cliente;
+            $name1  = $data->nombre_cliente;
             $sub    = "Nueva solicitud de seguro";
-            $to     = $data->data->correo_director;
-            $name2  = $data->data->director;
-            $cc     = $data->data->correo_agente;
-            Mail::send('email', ['data' => $data->data], function($msj) use($from, $name1, $sub, $to, $name2, $cc){
+            $to     = $data->correo_director;
+            $name2  = $data->director;
+            $cc     = $data->correo_agente;
+            Mail::send('email', ['data' => $data], function($msj) use($from, $name1, $sub, $to, $name2, $cc){
                 $msj->from($from, $name1);
                 $msj->subject($sub);
                 $msj->to($to, $name2);

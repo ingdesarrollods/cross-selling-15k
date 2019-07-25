@@ -41,6 +41,7 @@ function emailAgent(data){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    console.log(data);
     $.ajax({
 		type: 'post',
 		url: '/email',

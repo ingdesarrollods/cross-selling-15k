@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.26, for Linux (x86_64)
 --
--- Host: localhost    Database: cross_selling_15k
+-- Host: localhost    Database:15k_pruebas
 -- ------------------------------------------------------
 -- Server version	5.7.26-0ubuntu0.18.04.1
 
@@ -32,7 +32,7 @@ CREATE TABLE `agentes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `agentes` (
 
 LOCK TABLES `agentes` WRITE;
 /*!40000 ALTER TABLE `agentes` DISABLE KEYS */;
+INSERT INTO `agentes` VALUES (1,'Angente Pruebas 1','DIrector Prueba 1','111111111','jarman.corredor@linkdigital.co','jcortes@dayscript.com','2019-07-23 05:00:00','2019-07-23 05:00:00'),(2,'Agente Pruebas 2','Director Prueba 2','111111111','jarman.corredor@linkdigital.co','jcortes@dayscript.com','2019-07-23 05:00:00','2019-07-23 05:00:00'),(3,'Agente Pruebas 3','Director Prueba 3','111111111','jarman.corredor@linkdigital.co','jcortes@dayscript.com','2019-07-23 05:00:00','2019-07-23 05:00:00');
 /*!40000 ALTER TABLE `agentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,6 +73,19 @@ LOCK TABLES `agentes_contactos` WRITE;
 UNLOCK TABLES;
 
 --
+-- Temporary table structure for view `asignacion_agentes`
+--
+
+DROP TABLE IF EXISTS `asignacion_agentes`;
+/*!50001 DROP VIEW IF EXISTS `asignacion_agentes`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `asignacion_agentes` AS SELECT 
+ 1 AS `id_agente`,
+ 1 AS `numero`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `contactos`
 --
 
@@ -80,16 +94,16 @@ DROP TABLE IF EXISTS `contactos`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contactos` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `keyid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `numero_documento` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nombres` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `apellidos` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `celular` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `correo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keyid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `numero_documento` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombres` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `apellidos` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `celular` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `correo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,6 +112,7 @@ CREATE TABLE `contactos` (
 
 LOCK TABLES `contactos` WRITE;
 /*!40000 ALTER TABLE `contactos` DISABLE KEYS */;
+INSERT INTO `contactos` VALUES (1,'MTAyMzg3NTI2MQ==','1023875261','Johan Alexis','Cortes Hoyos','3022660332','joco1204@gmail.com',NULL,NULL);
 /*!40000 ALTER TABLE `contactos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +182,7 @@ CREATE TABLE `suscripcions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,6 +191,7 @@ CREATE TABLE `suscripcions` (
 
 LOCK TABLES `suscripcions` WRITE;
 /*!40000 ALTER TABLE `suscripcions` DISABLE KEYS */;
+INSERT INTO `suscripcions` VALUES (1,1,1,0,0,0,'2019-07-23 22:19:59','2019-07-23 22:19:59'),(2,1,0,0,0,1,'2019-07-23 22:22:32','2019-07-23 22:22:32'),(3,3,0,0,0,1,'2019-07-23 22:30:10','2019-07-23 22:30:10'),(4,3,0,0,1,0,'2019-07-23 22:30:37','2019-07-23 22:30:37'),(5,3,1,0,0,0,'2019-07-23 22:30:41','2019-07-23 22:30:41'),(6,3,0,0,0,1,'2019-07-23 22:30:45','2019-07-23 22:30:45'),(7,1,0,1,0,0,'2019-07-23 22:31:22','2019-07-23 22:31:22'),(8,1,0,0,1,0,'2019-07-23 22:31:38','2019-07-23 22:31:38'),(9,1,0,0,0,1,'2019-07-24 02:01:09','2019-07-24 02:01:09'),(10,1,0,0,0,1,'2019-07-24 02:09:22','2019-07-24 02:09:22'),(11,1,0,0,0,1,'2019-07-24 02:15:39','2019-07-24 02:15:39'),(12,1,0,1,0,0,'2019-07-24 02:16:26','2019-07-24 02:16:26'),(13,1,0,0,0,1,'2019-07-24 02:16:45','2019-07-24 02:16:45'),(14,1,0,0,1,0,'2019-07-24 02:17:02','2019-07-24 02:17:02'),(15,1,0,0,0,1,'2019-07-24 02:17:22','2019-07-24 02:17:22'),(16,1,0,1,0,0,'2019-07-24 02:24:05','2019-07-24 02:24:05'),(17,1,0,1,0,0,'2019-07-24 02:30:51','2019-07-24 02:30:51'),(18,1,0,0,1,0,'2019-07-24 02:30:57','2019-07-24 02:30:57'),(19,1,0,0,0,1,'2019-07-24 03:03:40','2019-07-24 03:03:40'),(20,1,0,0,0,1,'2019-07-24 18:31:22','2019-07-24 18:31:22'),(21,1,0,0,1,0,'2019-07-24 18:44:02','2019-07-24 18:44:02'),(22,1,0,0,0,1,'2019-07-24 19:05:26','2019-07-24 19:05:26'),(23,1,0,1,0,0,'2019-07-24 19:05:48','2019-07-24 19:05:48'),(24,1,0,0,1,0,'2019-07-24 19:08:49','2019-07-24 19:08:49'),(25,1,0,0,1,0,'2019-07-24 19:09:26','2019-07-24 19:09:26'),(26,1,1,0,0,0,'2019-07-24 19:09:44','2019-07-24 19:09:44'),(27,1,1,0,0,0,'2019-07-24 19:10:09','2019-07-24 19:10:09'),(28,1,0,1,0,0,'2019-07-24 19:11:19','2019-07-24 19:11:19'),(29,1,0,1,0,0,'2019-07-24 19:11:30','2019-07-24 19:11:30'),(30,1,0,1,0,0,'2019-07-24 19:11:51','2019-07-24 19:11:51'),(31,1,0,1,0,0,'2019-07-24 19:12:11','2019-07-24 19:12:11'),(32,1,0,1,0,0,'2019-07-24 19:16:07','2019-07-24 19:16:07'),(33,1,0,0,0,1,'2019-07-24 19:18:40','2019-07-24 19:18:40'),(34,1,0,1,0,0,'2019-07-24 19:20:46','2019-07-24 19:20:46'),(35,1,0,1,0,0,'2019-07-24 19:26:14','2019-07-24 19:26:14'),(36,1,0,1,0,0,'2019-07-24 19:33:36','2019-07-24 19:33:36'),(37,1,0,1,0,0,'2019-07-24 19:34:01','2019-07-24 19:34:01'),(38,1,0,1,0,0,'2019-07-24 19:34:32','2019-07-24 19:34:32'),(39,1,0,1,0,0,'2019-07-24 19:35:22','2019-07-24 19:35:22'),(40,1,0,1,0,0,'2019-07-24 19:35:42','2019-07-24 19:35:42'),(41,1,0,1,0,0,'2019-07-24 19:36:45','2019-07-24 19:36:45'),(42,1,0,1,0,0,'2019-07-24 19:37:04','2019-07-24 19:37:04'),(43,1,1,0,0,0,'2019-07-24 19:37:45','2019-07-24 19:37:45'),(44,1,1,0,0,0,'2019-07-24 19:38:26','2019-07-24 19:38:26'),(45,1,0,0,0,1,'2019-07-24 19:39:58','2019-07-24 19:39:58'),(46,1,1,0,0,0,'2019-07-24 19:41:05','2019-07-24 19:41:05'),(47,1,0,1,0,0,'2019-07-24 19:41:16','2019-07-24 19:41:16'),(48,1,1,0,0,0,'2019-07-24 19:43:01','2019-07-24 19:43:01'),(49,1,1,0,0,0,'2019-07-24 19:47:50','2019-07-24 19:47:50'),(50,1,1,0,0,0,'2019-07-24 19:48:29','2019-07-24 19:48:29'),(51,1,1,0,0,0,'2019-07-24 19:48:43','2019-07-24 19:48:43'),(52,1,1,0,0,0,'2019-07-24 19:49:27','2019-07-24 19:49:27'),(53,1,1,0,0,0,'2019-07-24 19:50:02','2019-07-24 19:50:02'),(54,1,1,0,0,0,'2019-07-24 19:50:13','2019-07-24 19:50:13'),(55,1,1,0,0,0,'2019-07-24 19:50:24','2019-07-24 19:50:24'),(56,1,1,0,0,0,'2019-07-24 19:52:46','2019-07-24 19:52:46'),(57,1,1,0,0,0,'2019-07-24 19:52:58','2019-07-24 19:52:58'),(58,1,0,0,0,1,'2019-07-24 19:56:16','2019-07-24 19:56:16'),(59,1,0,0,0,1,'2019-07-24 19:57:44','2019-07-24 19:57:44'),(60,1,1,0,0,0,'2019-07-24 20:15:44','2019-07-24 20:15:44'),(61,1,0,1,0,0,'2019-07-24 20:21:43','2019-07-24 20:21:43'),(62,1,1,0,0,0,'2019-07-24 20:23:39','2019-07-24 20:23:39'),(63,1,1,0,0,0,'2019-07-24 20:30:02','2019-07-24 20:30:02'),(64,1,1,0,0,0,'2019-07-24 20:31:04','2019-07-24 20:31:04'),(65,1,1,0,0,0,'2019-07-24 20:32:11','2019-07-24 20:32:11'),(66,1,1,0,0,0,'2019-07-24 20:33:05','2019-07-24 20:33:05'),(67,1,1,0,0,0,'2019-07-24 20:33:35','2019-07-24 20:33:35'),(68,1,1,0,0,0,'2019-07-24 20:34:09','2019-07-24 20:34:09'),(69,1,1,0,0,0,'2019-07-24 20:34:40','2019-07-24 20:34:40'),(70,1,1,0,0,0,'2019-07-24 20:35:55','2019-07-24 20:35:55'),(71,1,1,0,0,0,'2019-07-24 20:37:51','2019-07-24 20:37:51'),(72,1,1,0,0,0,'2019-07-24 20:39:19','2019-07-24 20:39:19'),(73,1,1,0,0,0,'2019-07-24 20:40:17','2019-07-24 20:40:17'),(74,1,1,0,0,0,'2019-07-24 20:41:49','2019-07-24 20:41:49'),(75,1,0,0,0,1,'2019-07-24 20:43:41','2019-07-24 20:43:41'),(76,1,0,0,0,1,'2019-07-24 20:45:50','2019-07-24 20:45:50'),(77,1,0,1,0,0,'2019-07-24 20:55:18','2019-07-24 20:55:18'),(78,1,0,0,0,1,'2019-07-24 20:55:34','2019-07-24 20:55:34'),(79,1,1,0,0,0,'2019-07-24 21:06:52','2019-07-24 21:06:52'),(80,1,0,0,0,1,'2019-07-24 21:11:31','2019-07-24 21:11:31'),(81,1,0,1,0,0,'2019-07-24 21:13:35','2019-07-24 21:13:35'),(82,1,0,0,1,0,'2019-07-24 21:18:14','2019-07-24 21:18:14'),(83,1,0,1,0,0,'2019-07-24 21:47:23','2019-07-24 21:47:23'),(84,1,0,0,0,1,'2019-07-24 21:49:28','2019-07-24 21:49:28'),(85,1,0,0,0,1,'2019-07-25 02:30:58','2019-07-25 02:30:58'),(86,1,0,1,0,0,'2019-07-25 21:07:18','2019-07-25 21:07:18');
 /*!40000 ALTER TABLE `suscripcions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,6 +225,24 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES (1,'Johan Cortes','jcortes@dayscript.com',NULL,'$2y$10$Lt1hPDs1P23FynxeFQ4FDulx/xERqwu.QUOwQ/bXuDLWtrtLC7IHm',NULL,'2019-07-24 21:52:17','2019-07-24 21:52:17');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Final view structure for view `asignacion_agentes`
+--
+
+/*!50001 DROP VIEW IF EXISTS `asignacion_agentes`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `asignacion_agentes` AS select `a`.`id` AS `id_agente`,count(`b`.`id`) AS `numero` from (`agentes` `a` left join `agentes_contactos` `b` on((`a`.`id` = `b`.`id_agente`))) group by `a`.`id` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -219,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-24 16:44:06
+-- Dump completed on 2019-07-25 11:23:35

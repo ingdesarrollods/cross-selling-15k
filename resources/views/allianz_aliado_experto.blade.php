@@ -21,8 +21,8 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<input type="hidden" name="id" id="id" value="1">
-			<input type="hidden" name="keyid" id="keyid" value="abcd1234">
+			<input type="hidden" name="id" id="id" value="<?php echo base64_decode($id); ?>">
+			<input type="hidden" name="keyid" id="keyid" value="<?php echo $keyid; ?>">
 			<div class="row">
 				<div class="col col-lg-12" align="center">
 					<img src="{{asset('img/header.jpg')}}" class="img-responsive" alt="header">

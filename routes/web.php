@@ -8,8 +8,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('{contacto}', function(){
-	return View::make('allianz_aliado_experto');
+Route::get('{id}/{contacto}', function($id, $contacto){
+	return View::make('allianz_aliado_experto',array('id' => $id, 'keyid' => $contacto));
 });
 
 Route::post('suscrito', 'SuscripcionController@store')->name('store');

@@ -33,11 +33,11 @@ class EmailController extends Controller
             $correo = $data->correo;
             $nombre = $data->nombres." ".$data->apellidos;
             Mail::send('contacto', ['data' => $data], function($msj) use($correo, $nombre){
-                $msj->from('jcortes@dayscript.com', 'Johan Cortes');
-                $msj->subject('Mailing de pruebas');
+                $msj->from('no-reply@somosallianz.com', 'Allianz');
+                $msj->subject('Conoce lo que Allianz tiene para ti');
                 $msj->to($correo, $nombre);
             });
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 }

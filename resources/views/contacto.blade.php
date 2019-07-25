@@ -14,15 +14,15 @@
                 <tr>
                     <td>
                         <div style="position: absolute;">
-                            <a href="http://15k.somosallianz.com:8000/allianz-aliado-experto/contacto/abcd1234" target="_blank">
-                                <div style="position: absolute; top: 660px;left: 230px; height: 50; width: 130px;">Click Aqui</div>    
+                            <a href="http://15k.somosallianz.com:8000/<?php echo base64_encode($data->id); ?>/<?php echo $data->keyid; ?>" target="_blank">
+                                <div style="position: absolute; top: 660px;left: 230px; height: 50; width: 130px;"></div>    
                             </a>
                             </div>
-                            <!--<img
+                            <img
                             style="width:800px; display: block;"
                             src="{{asset('img/mailing.jpg')}}"
                             alt="mailing"
-                            border="0">-->
+                            border="0">
                         </div>
                     	
                     </td>

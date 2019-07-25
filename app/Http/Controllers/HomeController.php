@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $result = (new EmailController)->contacto();
+        //$result = (new EmailController)->contacto();
         return view('home');
     }
 }

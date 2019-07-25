@@ -11,7 +11,7 @@ class EmailController extends Controller
     //
     public function send(Request $request){
         foreach ($request as $key => $data) {
-            /*$from   = $data['correo_cliente'];
+            $from   = $data['correo_cliente'];
             $name1  = $data['nombre_cliente'];
             $sub    = "Nueva solicitud de seguro";
             $to     = $data['correo_director'];
@@ -22,7 +22,7 @@ class EmailController extends Controller
                 $msj->subject($sub);
                 $msj->to($to, $name2);
                 $msj->cc($cc);
-            });*/
+            });
         }
         return redirect()->back();
     }

@@ -24,7 +24,7 @@ function ajax15k(id, opcion){
     });
 	$.ajax({
 		type: 'post',
-		url: 'suscrito',
+		url: '/suscrito',
 		data: {
 			id_contacto: id,
 			opcion: opcion
@@ -44,7 +44,7 @@ function emailAgent(data){
     });
     $.ajax({
 		type: 'post',
-		url: 'email',
+		url: '/email',
 		data: {
 			data: data	
 		},

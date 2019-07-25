@@ -8,7 +8,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/allianz-aliado-experto/contacto/{contacto}', function(){
+Route::get('{contacto}', function(){
 	return View::make('allianz_aliado_experto');
 });
 

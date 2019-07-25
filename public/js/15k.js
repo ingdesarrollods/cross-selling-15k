@@ -30,7 +30,7 @@ function ajax15k(id, opcion){
 			opcion: opcion
 		},
 		success: function(data){
-			//emailAgent(data);
+			emailAgent(data);
 		}
 	});
 }

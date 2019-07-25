@@ -44,7 +44,9 @@ function emailAgent(data){
     $.ajax({
 		type: 'post',
 		url: '/email',
-		data: data,
+		data: {
+			data: data	
+		},
 		success: function(result){
 			//window.location.href = '/gracias';
 		}

@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="http://15k.somosallianz.com/<?php //echo base64_encode($data->id); ?>1/<?php// echo $data->keyid; ?>2" target="_blank">
+                        <a href="http://15k.somosallianz.com/<?php echo base64_encode($data->id); ?>/<?php echo $data->keyid; ?>" target="_blank">
                             <img
                                 style="width:1760px; display: block;"
                                 src="http://15k.somosallianz.com/img/mailing/boton.png"

@@ -14,7 +14,7 @@ Route::get('{id}/{contacto}', function($id, $contacto){
 
 Route::post('suscrito', 'SuscripcionController@store')->name('store');
 
-Route::post('/email', 'EmailController@send')->name('send');
+Route::post('email', 'EmailController@send')->name('send');
 
 Route::get('/gracias', function(){
     return view('gracias');

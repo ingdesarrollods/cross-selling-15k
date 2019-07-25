@@ -29,7 +29,6 @@ function ajax15k(id, opcion){
 			id_contacto: id,
 			opcion: opcion
 		},
-		datatype: 'json',
 		success: function(data){
 			emailAgent(data);
 		}
@@ -48,7 +47,6 @@ function emailAgent(data){
 		data: {
 			data: data	
 		},
-		datatype: 'json',
 		success: function(result){
 			window.location.href = '/gracias';
 		}

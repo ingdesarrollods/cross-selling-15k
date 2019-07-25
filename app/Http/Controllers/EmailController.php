@@ -10,7 +10,7 @@ class EmailController extends Controller
 {
     //
     public function send(Request $request){
-        dd($request);
+        var_dump($request);
         /*foreach ($request->data as $key => $data) {
             $from   = $data['correo_cliente'];
             $name1  = $data['nombre_cliente'];
